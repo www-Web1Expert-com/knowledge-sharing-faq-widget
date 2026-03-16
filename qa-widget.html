@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Share-Ask Q&A Widget</title>
+<style>
+  .qa-container { max-width: 600px; margin: 20px auto; font-family: Arial, sans-serif; }
+  .qa-question { background-color: #f4f4f4; padding: 15px; cursor: pointer; border: 1px solid #ddd; font-weight: bold; margin-top: 5px; }
+  .qa-answer { padding: 15px; border: 1px solid #ddd; border-top: none; display: none; background-color: #fafafa; }
+  .qa-question::after { content: '+'; float: right; }
+  .qa-question.active::after { content: '-'; }
+</style>
+</head>
+<body>
+
+<div class="qa-container">
+  <div class="qa-question">How does knowledge sharing improve SEO?</div>
+  <div class="qa-answer">Distributing accurate, verifiable data signals authority to search engine crawlers, improving overall domain rank.</div>
+
+  <div class="qa-question">Is this widget responsive?</div>
+  <div class="qa-answer">Yes, the CSS architecture utilizes relative units to adapt mathematically to all viewport dimensions.</div>
+</div>
+
+<script>
+  const questions = document.querySelectorAll('.qa-question');
+  questions.forEach(question => {
+    question.addEventListener('click', function() {
+      this.classList.toggle('active');
+      const answer = this.nextElementSibling;
+      if (answer.style.display === "block") {
+        answer.style.display = "none";
+      } else {
+        answer.style.display = "block";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
